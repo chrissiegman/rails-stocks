@@ -1,0 +1,6 @@
+<%= form_with(model: [ @ticker, @ticker.prices.build ], local: true) do |form| %>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
+

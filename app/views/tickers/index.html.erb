@@ -4,5 +4,8 @@
 
 <%= @tickers.each do |ticker| %>
   <h3><%= link_to ticker.name, ticker_path(ticker) %></h3>
+  <%= ticker.prices.each do |price| %>
+    <h6><%= price.value %></h6>
+  <% end %>
 <% end %>
 
