@@ -2,6 +2,7 @@
 
 <p><%= link_to 'Create new ticker', new_ticker_path %></p>
 
+<%= @tickers.each do |ticker| %>
+  <h3><%= link_to ticker.name, ticker_path(ticker) %></h3>
+<% end %>
 
-
-<%= line_chart Article.group_by_hour(:created_at).count %>
