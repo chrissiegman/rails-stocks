@@ -1,10 +1,10 @@
 <%= @ticker.name %>
 
 <% stuff = {} %>
-<%= @ticker.prices.order(:created_at).each do |price_obj| %>
-  <% datet = price_obj.timestamp %>
+<% @ticker.prices.order(:created_at).each do |price_obj| %>
+  <% datet = Time.at(price_obj.timestamp.to_i) %>
   <% val = price_obj.value %>
   <% stuff[datet] = val %>
 <% end %>
 
-<%= line_chart stuff, curve: false %>
+<%= area_chart stuff, curve: false, points: false %>
