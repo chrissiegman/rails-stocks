@@ -62,3 +62,5 @@ gem "groupdate"
 # REST API
 gem "unirest"
 gem "whenever"
+gem "bcrypt"
+
