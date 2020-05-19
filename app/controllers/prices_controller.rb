@@ -12,7 +12,7 @@ class PricesController < ApplicationController
 
   private
   def price_params
-    params.require(:comment).permit(:value, :timestamp)
+    params.require(:price).permit(:value, :timestamp)
   end
 
 end

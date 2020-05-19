@@ -1,5 +1,8 @@
 <h1>Ticker Detail</h1>
 
+<%= render "prices/form" %>
+<%= render @ticker.prices %>
+
 <p>
   <%= render(:partial => "tickers/graph", :locals => {:prices => @ticker.prices })%>
 </p>

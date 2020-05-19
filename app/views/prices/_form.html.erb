@@ -1,5 +1,13 @@
 <%= form_with(model: [ @ticker, @ticker.prices.build ], local: true) do |form| %>
   <p>
+    <%= form.label :timestamp%><br>
+    <%= form.number_field :timestamp%>
+  </p>
+  <p>
+    <%= form.label :value %><br>
+    <%= form.number_field :value %>
+  </p>
+  <p>
     <%= form.submit %>
   </p>
 <% end %>

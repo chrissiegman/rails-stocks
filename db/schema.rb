@@ -33,7 +33,7 @@ ActiveRecord::Schema.define(version: 2020_05_19_135651) do
     t.integer "ticker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.datetime "timestamp"
+    t.string "timestamp"
     t.index ["ticker_id"], name: "index_prices_on_ticker_id"
   end
 
