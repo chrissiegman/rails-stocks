@@ -2,9 +2,9 @@
 
 <% stuff = {} %>
 <%= @ticker.prices.order(:created_at).each do |price_obj| %>
-  <% datet = price_obj.created_at %>
+  <% datet = price_obj.timestamp %>
   <% val = price_obj.value %>
   <% stuff[datet] = val %>
 <% end %>
 
-<%= line_chart stuff %>
+<%= line_chart stuff, curve: false %>
