@@ -1,17 +1,6 @@
 <%= @ticker.name %>
 
-<%= Article.group_by_hour(:created_at).count.each do |cobj| %>
-  -----
-<% end %>
-<%# line_chart Article.group_by_hour(:created_at).count %>
-
-<%# @ticker.prices.group_by_minute(:created_at).count %>
-<%# @ticker.prices.group_by_minute(:created_at) %>
-<%# line_chart @ticker.prices.order(:created_at) %>
-
 <%= stuff = {} %>
-<%= puts(stuff) %>
-
 <%= @ticker.prices.order(:created_at).each do |price_obj| %>
   <%= datet = price_obj.created_at %>
   <%= val = price_obj.value %>

@@ -3,6 +3,5 @@
 <%= render 'prices/form' %>
 <%= render @ticker.prices %>
 <p>
-  <%= render 'tickers/graph' %>
   <%= render(:partial => "tickers/graph", :locals => {:prices => @ticker.prices })%>
 </p>
