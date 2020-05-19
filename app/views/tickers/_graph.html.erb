@@ -1,7 +1,7 @@
 <%= @ticker.name %>
 
 <% stuff = {} %>
-<% @ticker.prices.order(:created_at).each do |price_obj| %>
+<%= @ticker.prices.order(:created_at).each do |price_obj| %>
   <% datet = price_obj.created_at %>
   <% val = price_obj.value %>
   <% stuff[datet] = val %>

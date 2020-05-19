@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_18_172954) do
+ActiveRecord::Schema.define(version: 2020_05_19_135651) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -33,6 +33,7 @@ ActiveRecord::Schema.define(version: 2020_05_18_172954) do
     t.integer "ticker_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.datetime "timestamp"
     t.index ["ticker_id"], name: "index_prices_on_ticker_id"
   end
 
