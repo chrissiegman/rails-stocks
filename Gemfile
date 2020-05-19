@@ -58,3 +58,7 @@ gem "chartkick"
 
 # Groupdate
 gem "groupdate"
+
+# REST API
+gem "unirest"
+gem "whenever"
