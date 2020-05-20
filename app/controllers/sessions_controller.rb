@@ -11,7 +11,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(username: params[:username])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to tickers_path 
+      redirect_to watchlists_path 
     else
       flash[:error] = "Login failed. Please try again"
       redirect_to '/login'
@@ -20,7 +20,7 @@ class SessionsController < ApplicationController
 
   def welcome
     if logged_in?
-      redirect_to tickers_path
+      redirect_to watchlists_path
     end
   end
 

@@ -12,6 +12,10 @@ Rails.application.routes.draw do
     resources :comments
   end
 
+  resources :watchlists do
+    resources :tickers
+  end
+
   resources :tickers do
     resources :prices
   end
