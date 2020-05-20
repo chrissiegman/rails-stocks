@@ -29,6 +29,7 @@ class TickersController < ApplicationController
 
   private
   def ticker_params
+    params[:ticker][:name].upcase!
     params.require(:ticker).permit(:name)
   end
 
@@ -46,6 +47,8 @@ class TickersController < ApplicationController
 
   private
   def call_chart_api(symbol)
+    #TODO handle bad response from API
+
     # Build API url string
     response = Unirest.get "https://apidojo-yahoo-finance-v1.p.rapidapi.com/market/get-charts?region=US&lang=en&interval=1d&range=1y&symbol=" + symbol,
       headers:{
