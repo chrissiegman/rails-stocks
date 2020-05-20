@@ -13,6 +13,7 @@ class SessionsController < ApplicationController
       session[:user_id] = @user.id
       redirect_to tickers_path 
     else
+      flash[:error] = "Login failed. Please try again"
       redirect_to '/login'
     end
   end
