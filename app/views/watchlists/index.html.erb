@@ -1,3 +1,4 @@
+<p><%= link_to 'Create new watchlist', new_watchlist_path %></p>
 <% @watchlists.each do |watchlist| %>
   <p><%= link_to watchlist.name, watchlist_path(watchlist) %></p>
 <% end %>

@@ -59,10 +59,10 @@ ActiveRecord::Schema.define(version: 2020_05_20_213937) do
   end
 
   create_table "watchlists_tickers", id: false, force: :cascade do |t|
-    t.integer "watchlist_id"
-    t.integer "ticker_id"
-    t.index ["ticker_id"], name: "index_watchlists_tickers_on_ticker_id"
-    t.index ["watchlist_id"], name: "index_watchlists_tickers_on_watchlist_id"
+    t.integer "watchlists_id"
+    t.integer "tickers_id"
+    t.index ["tickers_id"], name: "index_watchlists_tickers_on_tickers_id"
+    t.index ["watchlists_id"], name: "index_watchlists_tickers_on_watchlists_id"
   end
 
   add_foreign_key "comments", "articles"
