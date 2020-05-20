@@ -1,6 +1,7 @@
 class WatchlistsController < ApplicationController
 
   def index
+    @watchlists = current_user.watchlists
   end
 
   def new
