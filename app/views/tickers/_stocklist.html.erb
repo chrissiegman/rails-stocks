@@ -2,7 +2,7 @@
   <p><%= link_to 'Add new ticker to watchlist', new_ticker_path %></p>
 <% end %>
 
-<% @tickers.each do |ticker| %>
+<% :tickers.each do |ticker| %>
   <p><%= link_to ticker.name, ticker_path(ticker) %></p>
 <% end %>
 

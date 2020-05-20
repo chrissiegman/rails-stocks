@@ -118,4 +118,4 @@ yarn-debug.log*
 vendor/*
 tmp/*
 log/*
-
+*.png

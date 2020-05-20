@@ -17,18 +17,28 @@
     <ul class="navbar-nav mr-auto">
     <% if logged_in? %>
       <li class="nav-item">
-        <a class="nav-link" href="#">My Watchlists</a>
+        <%= link_to "My Watchlist", tickers_path, class: "nav-link" %>
       </li>
-    <% end %>
-    <% if logged_in? %>
       <!-- Dropdown -->
-      <li class="nav-item dropdown">
+      <!--<li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
           aria-haspopup="true" aria-expanded="false">Settings</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
           <%= link_to "Change Password", "#", method: :get, class: "dropdown-item" %>
           <%= link_to "Logout", "/logout", method: :get, class: "dropdown-item" %>
         </div>
+        </li>
+      -->
+      <!--
+      <li class="nav-item">
+        <a class="nav-link" href="#">Subscribe</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Donate</a>
+        </li>
+      -->
+      <li class="nav-item">
+        <%= link_to "Logout", "/logout", method: :get, class: "nav-link" %>
       </li>
     <% end %>
     </ul>
@@ -36,15 +46,8 @@
   <!-- Right aligned content -->
   <div class="navbar-collapse collapse">
     <ul class="nav navbar-nav navbar-right ml-auto">
-      <li class="nav-item">
-        <a class="nav-link" href="#">Subscribe</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Donate</a>
-      </li>
     <% if logged_in? %>
-
-      <p class="navbar-text">You are logged in as <%= current_user.username %></p>
+      <p class="navbar-text">You are logged in as <strong><%= current_user.username %></strong></p>
     <% else %>
       <li class="nav-item"><%= link_to "Login", '/login', method: :get, class: "nav-link" %></li>
       <li class="nav-item"> <%= link_to "Sign Up", '/signup', method: :get, class: "nav-link" %></li>

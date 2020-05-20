@@ -1,0 +1,14 @@
+<div class="jumbotron text-center">
+  <div class="container">
+    <h1>TickerPicker</h1>
+
+    <div class="caption">
+    <% if !logged_in? %>
+      <%= link_to "Log in", '/login', method: :get %> or <%= link_to "sign up", '/signup', method: :get %> to start making your own stock watchlists!
+    <% else %>
+      Get a head start on Wall Street today!
+    <% end %>
+    </div>
+  </div>
+</div>
+
