@@ -1,17 +1,17 @@
 @import "~bootstrap/scss/bootstrap";
-@import url('https://fonts.googleapis.com/css?family=Merriweather:400,700');
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@200&display=swap');
 
 $white: white;
 $black: black;
 
 .navbar {
         margin-bottom: 0;
-        background: $black;
+        background: $white;
 }
 body {
-        background: $black;
-        color: $white;
-        font-family: 'Merriweather', sans-serif;
+        background: $white;
+        color: $black;
+        font-family: 'Raleway', 'Arial', sans-serif;
 }
 h1,
 h2 {
