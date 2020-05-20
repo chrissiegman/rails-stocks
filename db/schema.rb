@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_19_165204) do
+ActiveRecord::Schema.define(version: 2020_05_20_213937) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -50,6 +50,22 @@ ActiveRecord::Schema.define(version: 2020_05_19_165204) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
+  create_table "watchlists", force: :cascade do |t|
+    t.string "name"
+    t.integer "user_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["user_id"], name: "index_watchlists_on_user_id"
+  end
+
+  create_table "watchlists_tickers", id: false, force: :cascade do |t|
+    t.integer "watchlist_id"
+    t.integer "ticker_id"
+    t.index ["ticker_id"], name: "index_watchlists_tickers_on_ticker_id"
+    t.index ["watchlist_id"], name: "index_watchlists_tickers_on_watchlist_id"
+  end
+
   add_foreign_key "comments", "articles"
   add_foreign_key "prices", "tickers"
+  add_foreign_key "watchlists", "users"
 end
