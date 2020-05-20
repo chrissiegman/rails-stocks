@@ -2,7 +2,7 @@
 <nav class="navbar navbar-expand-lg navbar-light primary-color">
 
   <!-- Navbar brand -->
-  <a class="navbar-brand" href="#">Navbar</a>
+  <%= link_to "Stock Tickers", root_path, class: "navbar-brand" %>
 
   <!-- Collapse button -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#basicExampleNav"
@@ -10,44 +10,45 @@
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <!-- Collapsible content -->
+  <!-- Left aligned content -->
   <div class="collapse navbar-collapse" id="basicExampleNav">
 
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
-      <li class="nav-item active">
-        <a class="nav-link" href="#">Home
-          <span class="sr-only">(current)</span>
-        </a>
+      <li class="nav-item">
+        <%= link_to "Home", "#", method: :get, class: "nav-link" %>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Features</a>
+        <a class="nav-link" href="#">My Watchlists</a>
       </li>
       <li class="nav-item">
-        <a class="nav-link" href="#">Pricing</a>
+        <a class="nav-link" href="#">Donate</a>
       </li>
-
       <!-- Dropdown -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Dropdown</a>
+          aria-haspopup="true" aria-expanded="false">Settings</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-          <a class="dropdown-item" href="#">Action</a>
-          <a class="dropdown-item" href="#">Another action</a>
-          <a class="dropdown-item" href="#">Something else here</a>
+          <%= link_to "Change Password", "#", method: :get, class: "dropdown-item" %>
+          <%= link_to "Logout", "/logout", method: :get, class: "dropdown-item" %>
         </div>
       </li>
+    </ul>
+  
+  <!-- Right aligned content -->
+  <div class="navbar-collapse collapse">
+    <ul class="nav navbar-nav navbar-right ml-auto">
+    <% if logged_in? %>
+
+      <p class="navbar-text">You are logged in as <%= current_user.username %></p>
+    <% else %>
+      <li class="nav-item"><%= link_to "Login", '/login', method: :get, class: "nav-link" %></li>
+      <li class="nav-item"> <%= link_to "Sign Up", '/signup', method: :get, class: "nav-link" %></li>
+    <% end %>
+    </ul>
 
     </ul>
-    <!-- Links -->
-
-    <form class="form-inline">
-      <div class="md-form my-0">
-        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-      </div>
-    </form>
   </div>
-  <!-- Collapsible content -->
 
 </nav>
 <!--/.Navbar-->
