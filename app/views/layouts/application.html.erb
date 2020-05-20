@@ -9,13 +9,13 @@
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Watchlists for your favorite stock tickers" %>">
     <%= csrf_meta_tags %>
-
   </head>
 
   <body>
     <header>
       <%= render 'layouts/navigation' %>
     </header>
+    <%= render 'layouts/jumbotron' %>
     <main role="main">
       <%= content_for?(:content) ? yield(:content) : yield %>
     </main>
