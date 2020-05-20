@@ -1,5 +1,7 @@
 class TickersController < ApplicationController
 
+  skip_before_action :authorized, only: [:index]
+
   def index
     @tickers = Ticker.all
   end

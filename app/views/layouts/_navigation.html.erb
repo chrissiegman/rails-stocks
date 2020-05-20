@@ -16,14 +16,17 @@
     <!-- Links -->
     <ul class="navbar-nav mr-auto">
       <li class="nav-item">
-        <%= link_to "Home", "#", method: :get, class: "nav-link" %>
+        <%= link_to "Index", "tickers", method: :get, class: "nav-link" %>
       </li>
+    <% if logged_in? %>
       <li class="nav-item">
         <a class="nav-link" href="#">My Watchlists</a>
       </li>
+    <% end %>
       <li class="nav-item">
         <a class="nav-link" href="#">Donate</a>
       </li>
+    <% if logged_in? %>
       <!-- Dropdown -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
@@ -33,6 +36,7 @@
           <%= link_to "Logout", "/logout", method: :get, class: "dropdown-item" %>
         </div>
       </li>
+    <% end %>
     </ul>
   
   <!-- Right aligned content -->

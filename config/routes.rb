@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   post 'login', to: 'sessions#create'
   get 'welcome', to: 'sessions#welcome'
   get 'authorized', to: 'sessions#page_requires_login'
+  get 'signup', to: 'users#new'
 
   resources :users, only: [:new, :create]
 
