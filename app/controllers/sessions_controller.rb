@@ -19,6 +19,9 @@ class SessionsController < ApplicationController
   end
 
   def welcome
+    if logged_in?
+      redirect_to tickers_path
+    end
   end
 
   def page_requires_login
