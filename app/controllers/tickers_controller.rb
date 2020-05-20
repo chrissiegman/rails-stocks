@@ -33,9 +33,9 @@ class TickersController < ApplicationController
   end
 
   private
-  def insert_ticker_data(symbol)
+  def insert_ticker_price_data(symbol)
     # make this dependent on success
-    flash[:notice] = "Added ticker " + @ticker.name + " to your watchlist. Data should be available shortly."
+    flash[:notice] = "Added ticker " + @ticker.name + " to your watchlist."
     
     data = call_chart_api(symbol)
     data.each do |key, value|
