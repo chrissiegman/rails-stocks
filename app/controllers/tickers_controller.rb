@@ -11,13 +11,18 @@ class TickersController < ApplicationController
   end
 
   def create
-    @ticker = Ticker.new(ticker_params)
-
-    if @ticker.save
-      redirect_to @ticker
+    ticker = Ticker.find_by name: params[:ticker][:name]
+    if ticker 
+      flash[:notice] = "The ticker " + ticker[:name] +  " is already in your watchlist"
     else
-      render 'new'
+      @ticker = Ticker.new(ticker_params)
+      if @ticker.save
+        flash[:notice] = "Added ticker " + @ticker.name + " to your watchlist. Data should be available shortly."
+      else
+        flash[:notice] = "Something went wrong."
+      end
     end
+    redirect_to tickers_path
   end
 
   def new
