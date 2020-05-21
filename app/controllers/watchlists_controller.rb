@@ -5,7 +5,7 @@ class WatchlistsController < ApplicationController
   end
 
   def show
-    @watchlist = Watchlist.find_by(params[:id])
+    @watchlist = Watchlist.find_by(:id => params[:id])
   end
 
   def new
@@ -20,6 +20,15 @@ class WatchlistsController < ApplicationController
   private
   def watchlist_params
     params.require(:watchlist).permit(:name, :user_id)
+  end
+
+  private
+  def tickers(wid)
+    result = Ticker.all
+    puts('---------------------')
+    puts(result)
+    puts('---------------------')
+    #tickers = Ticker.joins('watchlists_tickers').where(:watchlist_id => wid)
   end
 
 end
