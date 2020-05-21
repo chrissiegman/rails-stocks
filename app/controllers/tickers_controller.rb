@@ -10,6 +10,9 @@ class TickersController < ApplicationController
 
   def create
     # I think this logic could be more concise
+    puts('-------')
+    puts(params)
+    puts('-------')
     params[:ticker][:name] = params[:ticker][:name].upcase
     ticker = Ticker.find_by name: params[:ticker][:name] 
     if ticker
