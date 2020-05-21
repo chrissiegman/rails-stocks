@@ -1,7 +1,5 @@
-<h1>Watchlist Index</h1>
-<div class="button-pad">
-  <p><%= button_to 'Create new watchlist', new_watchlist_path %></p>
-</div>
+<h1>Ticker Lists</h1>
+<p><%= link_to 'Create new ticker list', new_watchlist_path %></p>
 <% @watchlists.each do |watchlist| %>
   <p><%= link_to watchlist.name, watchlist_path(watchlist) %></p>
 <% end %>

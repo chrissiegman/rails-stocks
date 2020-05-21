@@ -19,12 +19,12 @@
       <!-- Dropdown -->
       <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Watchlists</a>
+          aria-haspopup="true" aria-expanded="false">Ticker Lists</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
           <% current_user.watchlists.each do |wl| %>
             <%= link_to wl.name, watchlist_path(wl.id), method: :get, class: "dropdown-item" %>
           <% end %>
-          <strong><%= link_to "Create New", new_watchlist_path, method: :get, class: "dropdown-item" %></strong>
+          <strong><%= link_to "New ticker list", new_watchlist_path, method: :get, class: "dropdown-item" %></strong>
         </div>
         </li>
       
