@@ -10,11 +10,9 @@ class TickersController < ApplicationController
 
   def create
     # I think this logic could be more concise
-    puts('-------')
-    puts(params)
-    puts('-------')
+    @watchlist = Watchlist.find(params[:ticker][:watchlist_id])
     params[:ticker][:name] = params[:ticker][:name].upcase
-    ticker = Ticker.find_by name: params[:ticker][:name] 
+    ticker = Ticker.find_by(name: params[:ticker][:name], watchlist_id: @watchlist.id)
     if ticker
       flash[:error] = "The ticker " + ticker[:name] +  " is already in your watchlist."
     else
@@ -40,7 +38,7 @@ class TickersController < ApplicationController
   private
   def ticker_params
     params[:ticker][:name].upcase!
-    params[:ticker][:watchlist_id] = 1
+    params[:ticker][:watchlist_id] = @watchlist.id
     params.require(:ticker).permit(:name, :watchlist_id)
   end
 
