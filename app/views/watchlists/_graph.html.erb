@@ -1,0 +1,13 @@
+<% @watchlist.tickers.each do |t| %>
+  <div class="graph-container">
+    <h3><%= t.name %></h3>
+    <% stuff = {} %>
+    <% t.prices.order(:created_at).each do |price_obj| %>
+      <% datet = Time.at(price_obj.timestamp.to_i) %>
+      <% val = price_obj.value %>
+      <% stuff[datet] = val %>
+    <% end %>
+    <%= area_chart stuff, curve: true, points: false, height: 50 %>
+  </div>
+<% end %>
+
