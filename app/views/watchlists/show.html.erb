@@ -1,3 +1,6 @@
 <h3><%= @watchlist.name %> Watchlist</h3>
 <p><%= link_to 'Add new ticker to watchlist', new_ticker_path %></p>
 
+<% @watchlist.tickers.each do |ticker| %>
+  <p><%= link_to ticker.name, ticker_path(ticker) %></p>
+<% end %>

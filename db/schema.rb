@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_20_213937) do
+ActiveRecord::Schema.define(version: 2020_05_20_213125) do
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
@@ -39,8 +39,10 @@ ActiveRecord::Schema.define(version: 2020_05_20_213937) do
 
   create_table "tickers", force: :cascade do |t|
     t.string "name"
+    t.integer "watchlist_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["watchlist_id"], name: "index_tickers_on_watchlist_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -56,13 +58,6 @@ ActiveRecord::Schema.define(version: 2020_05_20_213937) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_watchlists_on_user_id"
-  end
-
-  create_table "watchlists_tickers", id: false, force: :cascade do |t|
-    t.integer "watchlists_id"
-    t.integer "tickers_id"
-    t.index ["tickers_id"], name: "index_watchlists_tickers_on_tickers_id"
-    t.index ["watchlists_id"], name: "index_watchlists_tickers_on_watchlists_id"
   end
 
   add_foreign_key "comments", "articles"

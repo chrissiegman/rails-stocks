@@ -1,4 +1,4 @@
 class Watchlist < ApplicationRecord
   belongs_to :user
-  has_and_belongs_to_many :tickers
+  has_many :tickers
 end

@@ -2,7 +2,7 @@ class CreateTickers < ActiveRecord::Migration[6.0]
   def change
     create_table :tickers do |t|
       t.string :name
-
+      t.references :watchlist
       t.timestamps
     end
   end

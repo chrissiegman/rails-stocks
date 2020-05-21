@@ -19,12 +19,15 @@ class TickersController < ApplicationController
       data = call_chart_api(@ticker.name)
       if !data.nil?
         @ticker.save
+        puts('----')
+        puts(@ticker)
+        puts('----')
         insert_ticker_price_data(@ticker.name, data)
       else
         flash[:error] = "Data import failed for symbol " + @ticker.name + ". Please ensure this is a valid symbol and try again."
       end
     end
-    redirect_to tickers_path
+    redirect_to watchlists_path
   end
 
   def new
@@ -34,15 +37,16 @@ class TickersController < ApplicationController
   private
   def ticker_params
     params[:ticker][:name].upcase!
-    params.require(:ticker).permit(:name)
+    params[:ticker][:watchlist_id] = 1
+    params.require(:ticker).permit(:name, :watchlist_id)
   end
 
   private
   def insert_ticker_price_data(symbol, data)
-    flash[:success] = "Added ticker " + @ticker.name + " to your watchlist."
+    flash[:success] = "Added ticker " + symbol + " to your watchlist."
+    @ticker = Ticker.find_by(:name => symbol)
     data.each do |key, value|
-      ticker = Ticker.find_by name: symbol
-      ticker.prices.create({"timestamp": key, "value": value})
+      Price.create({"timestamp": key, "value": value, "ticker_id": @ticker.id})
     end
   end
 
