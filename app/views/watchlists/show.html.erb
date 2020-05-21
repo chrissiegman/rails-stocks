@@ -1,3 +1,5 @@
 <h1><%= @watchlist.name %></h1>
-<p><%= link_to 'Add new ticker to watchlist', new_watchlist_ticker_path(@watchlist.id) %></p>
+<div class="button-pad">
+  <p><%= button_to 'Add new ticker to watchlist', new_watchlist_ticker_path(@watchlist.id) %></p>
+</p>
 <%= render 'graph' %>

@@ -17,15 +17,17 @@
     <ul class="navbar-nav mr-auto">
     <% if logged_in? %>
       <!-- Dropdown -->
-      <!--<li class="nav-item dropdown">
+      <li class="nav-item dropdown">
         <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink" data-toggle="dropdown"
-          aria-haspopup="true" aria-expanded="false">Settings</a>
+          aria-haspopup="true" aria-expanded="false">Watchlists</a>
         <div class="dropdown-menu dropdown-primary" aria-labelledby="navbarDropdownMenuLink">
-          <%= link_to "Change Password", "#", method: :get, class: "dropdown-item" %>
-          <%= link_to "Logout", "/logout", method: :get, class: "dropdown-item" %>
+          <% current_user.watchlists.each do |wl| %>
+            <%= link_to wl.name, watchlist_path(wl.id), method: :get, class: "dropdown-item" %>
+          <% end %>
+          <strong><%= link_to "Create New", new_watchlist_path, method: :get, class: "dropdown-item" %></strong>
         </div>
         </li>
-      -->
+      
       <!--
       <li class="nav-item">
         <a class="nav-link" href="#">Subscribe</a>
